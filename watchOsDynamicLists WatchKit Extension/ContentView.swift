@@ -48,12 +48,18 @@ struct ContentView: View {
                 .listRowPlatterColor(selectedPerson == loopPerson.id.uuidString ? Color.init(white: 0.3) : Color.init(white: 0.1))
                 .animation(.easeInOut(duration: 0.2))
             }
+            .onMove(perform: move)
+            .onDelete(perform: delete)
         }
     }
-    //delete the list item func
+    //delete the list item  based on whereever the func is placed
     func delete(at offsets: IndexSet) {
         print(offsets)
         people.remove(atOffsets: offsets)
+    }
+    //move item from one offsets to a different offsets
+    func move(fromOffsets source: IndexSet, toOffsets destination: Int) {
+        people.move(fromOffsets: source, toOffset: destination)
     }
 }
 
