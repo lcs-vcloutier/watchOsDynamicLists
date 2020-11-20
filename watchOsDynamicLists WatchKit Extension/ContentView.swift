@@ -22,24 +22,25 @@ struct ContentView: View {
     ]
     
     //variable that is selected person optional of struct
-    @State var selectedPerson: Person?
+    @State var selectedPerson: String?
     
     var body: some View {
-        //actual list
+        //actual list of people
         List {
             ForEach(people, id: \.id) { loopPerson in
                 VStack {
+                    //logic for selected person
                     Button(action: {
-                        if self.selectedPerson == loopPerson {
+                        if self.selectedPerson == loopPerson.id.uuidString {
                             self.selectedPerson = nil
                         } else {
-                            self.selectedPerson = loopPerson
+                            self.selectedPerson = loopPerson.id.uuidString
                         }
                     }) {
                         Text(loopPerson.name)
                     }
-                    if selectedPerson == loopPerson {
-                        Text(loopPerson.age)
+                    if selectedPerson == loopPerson.id.uuidString {
+                        Text("\(loopPerson.age)")
                     }
                 }
             }
