@@ -43,7 +43,7 @@ struct ContentView: View {
                     if self.selectedPerson == loopPerson.id.uuidString {
                         Text("Age: \(loopPerson.age)")
                     }
-                }
+                }.padding()
                 //change color on select
                 .listRowPlatterColor(selectedPerson == loopPerson.id.uuidString ? Color.init(white: 0.3) : Color.init(white: 0.1))
                 .animation(.easeInOut(duration: 0.2))
