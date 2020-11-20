@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
-            .padding()
+        List {
+            ForEach(0..<5) { _ in
+                Text("aaa")
+            }
+        }
     }
 }
 
