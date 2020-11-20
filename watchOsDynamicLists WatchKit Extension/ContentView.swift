@@ -14,7 +14,7 @@ struct Person: Identifiable {
 struct ContentView: View {
     
     //people array of Person structs
-    var people: [Person] = [
+    @State var people: [Person] = [
         Person(name: "Chris", age: 5),
         Person(name: "Alfred", age: 7),
         Person(name: "Bruce", age: 9),
@@ -49,6 +49,11 @@ struct ContentView: View {
                 .animation(.easeInOut(duration: 0.2))
             }
         }
+    }
+    //delete the list item func
+    func delete(at offsets: IndexSet) {
+        print(offsets)
+        people.remove(atOffsets: offsets)
     }
 }
 
