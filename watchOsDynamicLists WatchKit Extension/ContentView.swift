@@ -29,7 +29,7 @@ struct ContentView: View {
         List {
             ForEach(people, id: \.id) { loopPerson in
                 VStack {
-                    //logic for selected person
+                    //logic for selected person just compare the string instead of creating actual equatable values
                     Button(action: {
                         if self.selectedPerson == loopPerson.id.uuidString {
                             self.selectedPerson = nil
@@ -39,7 +39,8 @@ struct ContentView: View {
                     }) {
                         Text(loopPerson.name)
                     }
-                    if selectedPerson == loopPerson.id.uuidString {
+                    //show age on select
+                    if self.selectedPerson == loopPerson.id.uuidString {
                         Text("\(loopPerson.age)")
                     }
                 }
