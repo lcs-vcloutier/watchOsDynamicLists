@@ -27,10 +27,19 @@ struct ContentView: View {
     var body: some View {
         //actual list
         List {
-            ForEach(people, id: \.id) { thisPerson in
+            ForEach(people, id: \.id) { loopPerson in
                 VStack {
-                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Button")/*@END_MENU_TOKEN@*/
+                    Button(action: {
+                        if self.selectedPerson == loopPerson {
+                            self.selectedPerson = nil
+                        } else {
+                            self.selectedPerson = loopPerson
+                        }
+                    }) {
+                        Text(loopPerson.name)
+                    }
+                    if selectedPerson == loopPerson {
+                        Text(loopPerson.age)
                     }
                 }
             }
